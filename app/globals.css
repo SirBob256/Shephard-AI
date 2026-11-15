@@ -1,0 +1,241 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+:root {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  ::root {
+  --background: #eef5ff;
+  --foreground: #171717;
+}
+}
+
+body {
+  margin: 0;
+  padding: 0;
+
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(147, 197, 253, 0.5),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at top right,
+      rgba(196, 181, 253, 0.4),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at bottom left,
+      rgba(125, 211, 252, 0.3),
+      transparent 25%
+    ),
+    linear-gradient(
+      180deg,
+      #eef5ff 0%,
+      #dbeafe 50%,
+      #c7d2fe 100%
+    );
+
+  background-attachment: fixed;
+
+  color: var(--foreground);
+
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #dbeafe;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    #3b82f6,
+    #6366f1
+  );
+
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    180deg,
+    #2563eb,
+    #4f46e5
+  );
+}
+body::before {
+  background:
+    radial-gradient(
+      circle,
+      rgba(255,255,255,0.3),
+      transparent 70%
+    );
+}
+body::before {
+  content: "";
+
+  position: fixed;
+
+  width: 500px;
+  height: 500px;
+
+  top: -150px;
+  left: -150px;
+
+  border-radius: 50%;
+
+  background: rgba(59, 130, 246, 0.2);
+
+  filter: blur(80px);
+
+  animation: floatBlue 15s ease-in-out infinite;
+
+  pointer-events: none;
+
+  z-index: -1;
+}
+
+body::after {
+  content: "";
+
+  position: fixed;
+
+  width: 450px;
+  height: 450px;
+
+  bottom: -150px;
+  right: -150px;
+
+  border-radius: 50%;
+
+  background: rgba(139, 92, 246, 0.18);
+
+  filter: blur(100px);
+
+  animation: floatPurple 18s ease-in-out infinite;
+
+  pointer-events: none;
+
+  z-index: -1;
+}
+
+@keyframes floatBlue {
+  0% {
+    transform: translate(0px, 0px);
+  }
+
+  50% {
+    transform: translate(60px, 40px);
+  }
+
+  100% {
+    transform: translate(0px, 0px);
+  }
+}
+
+@keyframes floatPurple {
+  0% {
+    transform: translate(0px, 0px);
+  }
+
+  50% {
+    transform: translate(-60px, -40px);
+  }
+
+  100% {
+    transform: translate(0px, 0px);
+  }
+}
+.floating-cross {
+  position: fixed;
+
+  color: rgba(255,255,255,0.2);
+
+  font-size: 30px;
+
+  animation: drift 20s linear infinite;
+
+  pointer-events: none;
+}
+
+@keyframes drift {
+  from {
+    transform: translateY(100vh);
+  }
+
+  to {
+    transform: translateY(-120vh);
+  }
+}
+@keyframes flyIn {
+  0% {
+    transform:
+      translateX(-800px)
+      translateY(-100px)
+      rotate(-25deg);
+    opacity: 0;
+  }
+
+  70% {
+    transform:
+      translateX(50px)
+      translateY(20px)
+      rotate(8deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform:
+      translateX(0)
+      translateY(0)
+      rotate(0deg);
+    opacity: 1;
+  }
+}
+@keyframes hoverFloat {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+
+  25% {
+    transform: translateY(-4px) rotate(-2deg);
+  }
+
+  50% {
+    transform: translateY(-8px) rotate(0deg);
+  }
+
+  75% {
+    transform: translateY(-4px) rotate(2deg);
+  }
+
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+}
+@keyframes cardReveal {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
